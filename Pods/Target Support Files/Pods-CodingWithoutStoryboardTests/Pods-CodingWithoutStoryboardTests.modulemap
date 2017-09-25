@@ -1,6 +1,0 @@
-framework module Pods_CodingWithoutStoryboardTests {
-  umbrella header "Pods-CodingWithoutStoryboardTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
