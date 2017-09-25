@@ -8,7 +8,23 @@
 
 import LBTAComponents
 
+
+
+class UserCell: DatasourceCell {
+    override func setupViews() {
+        super.setupViews()
+        backgroundColor = .yellow
+        
+    }
+}
+
+
+
 class HomeDatasource: Datasource {
+    
+    override func cellClasses() -> [DatasourceCell.Type] {
+        return [UserCell.self]
+    }
     
     let words = ["user1", "user2", "user3"]
 
@@ -22,7 +38,7 @@ class HomeDatasource: Datasource {
 
 class HomeDataSourceController: DatasourceController {
     override func viewDidLoad() {
-       
+    super.viewDidLoad()
         
     let homeDatasource = HomeDatasource()
     self.datasource = homeDatasource
