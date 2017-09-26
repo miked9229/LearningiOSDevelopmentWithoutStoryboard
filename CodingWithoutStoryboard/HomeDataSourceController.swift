@@ -15,6 +15,14 @@ class UserHeader: DatasourceCell {
     }
 }
 
+class UserFooter: DatasourceCell {
+    override func setupViews() {
+        super.setupViews()
+        backgroundColor = .green
+        
+    }
+}
+
 class UserCell: DatasourceCell {
     
     override var datasourceItem: Any? {
@@ -54,6 +62,11 @@ class HomeDatasource: Datasource {
         return [UserHeader.self]
     }
     
+    
+    override func footerClasses() -> [DatasourceCell.Type]? {
+        return [UserFooter.self]
+    }
+    
     override func cellClasses() -> [DatasourceCell.Type] {
         return [UserCell.self]
     }
@@ -79,5 +92,9 @@ class HomeDataSourceController: DatasourceController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 50)
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 100)
     }
 }
