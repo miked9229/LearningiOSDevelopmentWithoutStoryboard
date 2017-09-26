@@ -8,19 +8,51 @@
 
 import LBTAComponents
 
-
+class UserHeader: DatasourceCell {
+    override func setupViews() {
+        super.setupViews()
+        backgroundColor = .blue
+    }
+}
 
 class UserCell: DatasourceCell {
+    
+    override var datasourceItem: Any? {
+        didSet {
+            nameLabel.text = datasourceItem as? String
+        }
+        
+    }
+    
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "TEST TEST TEST"
+        return label
+    
+    }()
+    
+    
     override func setupViews() {
         super.setupViews()
         backgroundColor = .yellow
+        addSubview(nameLabel)
+        
+        nameLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
         
     }
+    
+    
 }
 
 
 
 class HomeDatasource: Datasource {
+    
+    override func headerClasses() -> [DatasourceCell.Type]? {
+        return [UserHeader.self]
+    }
     
     override func cellClasses() -> [DatasourceCell.Type] {
         return [UserCell.self]
@@ -43,5 +75,9 @@ class HomeDataSourceController: DatasourceController {
     let homeDatasource = HomeDatasource()
     self.datasource = homeDatasource
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
     }
 }
