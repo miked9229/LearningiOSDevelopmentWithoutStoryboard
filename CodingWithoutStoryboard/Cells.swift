@@ -38,6 +38,7 @@ class UserCell: DatasourceCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "TEST TEST TEST"
+        label.backgroundColor = .green
         return label
         
     }()
@@ -50,23 +51,30 @@ class UserCell: DatasourceCell {
         
     }()
     
+    let usernameLabel: UILabel = {
+        let usernameLabel = UILabel()
+        usernameLabel.text = "username"
+        usernameLabel.backgroundColor = .purple
+        return usernameLabel
+    
+    }()
     
     
     
     
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .yellow
         
         addSubview(profileImageView)
+        addSubview(nameLabel)
+        addSubview(usernameLabel)
         
         profileImageView.anchor(self.topAnchor, left: self.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         
         
+        nameLabel.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: self.rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 12, widthConstant: 0, heightConstant: 20)
         
-        addSubview(nameLabel)
-        
-        nameLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        usernameLabel.anchor(nameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: nil, right: nameLabel.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
         
         
     }
