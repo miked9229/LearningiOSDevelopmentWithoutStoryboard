@@ -77,6 +77,9 @@ class UserCell: DatasourceCell {
         followButton.layer.borderColor = twitterBlue.cgColor
         followButton.layer.borderWidth = 1
         followButton.setTitle("Follow", for: .normal)
+        followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        followButton.setTitleColor(twitterBlue, for: .normal)
+        
        
         followButton.setTitleColor(twitterBlue, for: .normal)
         return followButton
