@@ -29,32 +29,35 @@ class UserCell: DatasourceCell {
     
     override var datasourceItem: Any? {
         didSet {
-            nameLabel.text = datasourceItem as? String
+//            nameLabel.text = datasourceItem as? String
         }
         
     }
     
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "profile_image")
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds = true
+        return imageView
+        
+    }()
+    
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "TEST TEST TEST"
-        label.backgroundColor = .green
+        label.text = "Brian Voong"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
         
     }()
     
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .red
-        return imageView
-        
-    }()
-    
     let usernameLabel: UILabel = {
         let usernameLabel = UILabel()
-        usernameLabel.text = "username"
-        usernameLabel.backgroundColor = .purple
+        usernameLabel.text = "@buildthatapp"
+        usernameLabel.font = UIFont.systemFont(ofSize: 14)
+        usernameLabel.textColor = UIColor(r: 130, g: 130, b: 130)
         return usernameLabel
     
     }()
@@ -62,14 +65,20 @@ class UserCell: DatasourceCell {
     
     let bioTextView: UITextView = {
        let textView = UITextView()
-       textView.backgroundColor = .yellow
-      return textView
+       textView.text = "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps."
+       return textView
        
     }()
     
     let followButton: UIButton = {
+       let twitterBlue = UIColor(r: 61, g: 167, b: 244)
        let followButton = UIButton()
-        followButton.backgroundColor = .cyan
+        followButton.layer.cornerRadius = 5
+        followButton.layer.borderColor = twitterBlue.cgColor
+        followButton.layer.borderWidth = 1
+        followButton.setTitle("Follow", for: .normal)
+       
+        followButton.setTitleColor(twitterBlue, for: .normal)
         return followButton
     }()
     
@@ -88,10 +97,10 @@ class UserCell: DatasourceCell {
         
         nameLabel.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: followButton.leftAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 12, widthConstant: 0, heightConstant: 20)
         
-        usernameLabel.anchor(nameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: nil, right: nameLabel.rightAnchor, topConstant: 8, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
+        usernameLabel.anchor(nameLabel.bottomAnchor, left: nameLabel.leftAnchor, bottom: nil, right: nameLabel.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
         
         
-        bioTextView.anchor(usernameLabel.bottomAnchor, left: usernameLabel.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        bioTextView.anchor(usernameLabel.bottomAnchor, left: usernameLabel.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: -2, leftConstant: -4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         followButton.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: 12, widthConstant: 120, heightConstant: 34)
         
