@@ -14,9 +14,6 @@ let twitterBlue = UIColor(r: 61, g: 167, b: 244)
 
 class UserHeader: DatasourceCell {
     
-    
-    
-    
     let textLabel: UILabel = {
         let label = UILabel()
         label.text = "WHO TO FOLLOW"
@@ -37,8 +34,6 @@ class UserHeader: DatasourceCell {
 
 class UserFooter: DatasourceCell {
     
-    
-    
     let textLabel: UILabel = {
         let label = UILabel()
         label.text = "Show me more"
@@ -49,7 +44,6 @@ class UserFooter: DatasourceCell {
         
     }()
 
-    
     override func setupViews() {
         super.setupViews()
         addSubview(textLabel)
