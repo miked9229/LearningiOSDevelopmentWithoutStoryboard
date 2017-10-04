@@ -14,7 +14,9 @@ class HomeDatasource: Datasource {
     
     
     let users: [User] = {
-        let brianUser = User(name: "TEST", username: "@ttesttesttest", bioText: "SOME MORE BIO TEXT")
+        let brianUser = User(name: "Brian Voong", username: "@buildthatapp", bioText: "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps.", profileImage: #imageLiteral(resourceName: "profile_image"))
+        
+        
         
         return [brianUser]
     
