@@ -1,67 +1,26 @@
 //
-//  Cells.swift
+//  UserCell.swift
 //  CodingWithoutStoryboard
 //
-//  Created by Michael Doroff on 9/26/17.
+//  Created by Michael Doroff on 10/4/17.
 //  Copyright © 2017 Michael Doroff. All rights reserved.
 //
 
 import Foundation
+import UIKit
 import LBTAComponents
 
-
-let twitterBlue = UIColor(r: 61, g: 167, b: 244)
-
-class UserHeader: DatasourceCell {
-    
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.text = "WHO TO FOLLOW"
-        label.font = UIFont.systemFont(ofSize: 16)
-        return label
-        
-        
-        }()
-    
-    override func setupViews() {
-        super.setupViews()
-        addSubview(textLabel)
-        
-        
-    textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-    }
-}
-
-class UserFooter: DatasourceCell {
-    
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Show me more"
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = twitterBlue
-        return label
-        
-        
-    }()
-
-    override func setupViews() {
-        super.setupViews()
-        addSubview(textLabel)
-        
-        
-        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-    }
-}
 
 class UserCell: DatasourceCell {
     
     override var datasourceItem: Any? {
         didSet {
-        
+            
             guard let user = datasourceItem as? User else { return }
             nameLabel.text = user.name
             usernameLabel.text = user.username
             bioTextView.text = user.bioText
+            profileImageView.image = user.profileImage
             
         }
     }
@@ -91,21 +50,21 @@ class UserCell: DatasourceCell {
         usernameLabel.font = UIFont.systemFont(ofSize: 14)
         usernameLabel.textColor = UIColor(r: 130, g: 130, b: 130)
         return usernameLabel
-    
+        
     }()
     
     
     let bioTextView: UITextView = {
-       let textView = UITextView()
-       textView.text = "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps."
+        let textView = UITextView()
+        textView.text = "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps."
         textView.backgroundColor = .clear
-       return textView
-       
+        return textView
+        
     }()
     
     let followButton: UIButton = {
-
-       let followButton = UIButton()
+        
+        let followButton = UIButton()
         followButton.layer.cornerRadius = 5
         followButton.layer.borderColor = twitterBlue.cgColor
         followButton.layer.borderWidth = 1
@@ -113,7 +72,7 @@ class UserCell: DatasourceCell {
         followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         followButton.setTitleColor(twitterBlue, for: .normal)
         
-       
+        
         followButton.setTitleColor(twitterBlue, for: .normal)
         return followButton
     }()
@@ -140,9 +99,6 @@ class UserCell: DatasourceCell {
         
         followButton.anchor(self.topAnchor, left: nil, bottom: nil, right: self.rightAnchor, topConstant: 12, leftConstant: 0, bottomConstant: 0, rightConstant: 12, widthConstant: 120, heightConstant: 34)
         
-        
     }
-    
-    
 }
-
+ 

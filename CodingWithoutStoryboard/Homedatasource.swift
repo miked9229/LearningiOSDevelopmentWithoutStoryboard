@@ -16,9 +16,11 @@ class HomeDatasource: Datasource {
     let users: [User] = {
         let brianUser = User(name: "Brian Voong", username: "@buildthatapp", bioText: "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps.", profileImage: #imageLiteral(resourceName: "profile_image"))
         
+        let rayUser = User(name: "Ray Wenderlich", username: "@rwenderlich", bioText:
+            "Ray Wenderlich is an iPhone developer and tweets on topics related to iPhone, software, and gaming. Check out our conference:", profileImage: #imageLiteral(resourceName: "Ray_profile_image"))
         
         
-        return [brianUser]
+        return [brianUser, rayUser]
     
     
     }()
@@ -37,8 +39,7 @@ class HomeDatasource: Datasource {
     override func cellClasses() -> [DatasourceCell.Type] {
         return [UserCell.self]
     }
-    
-//    let words = ["user1", "user2", "user3"]
+
     
     override func numberOfItems(_ section: Int) -> Int {
         return users.count
