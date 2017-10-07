@@ -15,11 +15,21 @@ class HomeDataSourceController: DatasourceController {
         
     let homeDatasource = HomeDatasource()
     self.datasource = homeDatasource
+    setUpNavBarItems()
         
     }
     
     private func setUpNavBarItems() {
         
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "title_icon"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = titleImageView
+        
+        let followButton = UIButton(type: .system)
+        followButton.setImage(#imageLiteral(resourceName: "follow").withRenderingMode(.alwaysOriginal), for: .normal)
+        followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
