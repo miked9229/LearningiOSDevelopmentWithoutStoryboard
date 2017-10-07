@@ -44,6 +44,8 @@ class HomeDataSourceController: DatasourceController {
         
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: composeButton), UIBarButtonItem(customView: searchButton)]
         
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.backgroundColor = .white
         
     }
     
