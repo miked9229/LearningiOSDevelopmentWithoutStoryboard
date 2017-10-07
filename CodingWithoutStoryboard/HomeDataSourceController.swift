@@ -9,12 +9,17 @@
 import LBTAComponents
 
 class HomeDataSourceController: DatasourceController {
+    
     override func viewDidLoad() {
     super.viewDidLoad()
         
     let homeDatasource = HomeDatasource()
     self.datasource = homeDatasource
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     
