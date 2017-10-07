@@ -57,7 +57,8 @@ class UserCell: DatasourceCell {
     let bioTextView: UITextView = {
         let textView = UITextView()
         textView.text = "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps."
-        textView.backgroundColor = .clear
+//        textView.backgroundColor = .clear
+        textView.font = UIFont.systemFont(ofSize: 15)
         return textView
         
     }()
@@ -80,6 +81,9 @@ class UserCell: DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
+        
+        separatorLineView.isHidden = false
+        
         
         addSubview(profileImageView)
         addSubview(nameLabel)
