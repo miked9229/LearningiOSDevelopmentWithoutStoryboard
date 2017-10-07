@@ -19,7 +19,7 @@ class WordCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
         
-    }
+    } 
     
     let wordLabel: UILabel = {
         let label = UILabel()

@@ -18,6 +18,10 @@ class HomeDataSourceController: DatasourceController {
         
     }
     
+    private func setUpNavBarItems() {
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -30,7 +34,7 @@ class HomeDataSourceController: DatasourceController {
             // lets get an estimation of the height of our cell based on user.bioText
        
            
-            let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12
+            let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2
             
             let size = CGSize(width: approximateWidthOfBioTextView, height: 900)
             
