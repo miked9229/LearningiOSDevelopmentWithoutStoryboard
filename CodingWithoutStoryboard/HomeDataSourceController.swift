@@ -16,6 +16,9 @@ class HomeDataSourceController: DatasourceController {
     let homeDatasource = HomeDatasource()
     self.datasource = homeDatasource
     setUpNavBarItems()
+        
+        
+        collectionView?.backgroundColor = UIColor(r: 232, g: 236, b: 241)
     
         
     }
@@ -53,11 +56,25 @@ class HomeDataSourceController: DatasourceController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        if section == 1 {
+            return .zero
+        }
         return CGSize(width: view.frame.width, height: 50)
         
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
+        UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        
+        
+        if section == 1 {
+            return .zero
+        }
+        
+        return CGSize(width: view.frame.width, height: 64)
+    
+    
+    
     }
     
 

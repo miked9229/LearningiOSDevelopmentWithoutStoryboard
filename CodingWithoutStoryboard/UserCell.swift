@@ -82,6 +82,8 @@ class UserCell: DatasourceCell {
     override func setupViews() {
         super.setupViews()
         
+        
+        backgroundColor = .white
 
         
         separatorLineView.isHidden = false

@@ -47,6 +47,10 @@ class HomeDatasource: Datasource {
     override func item(_ indexPath: IndexPath) -> Any? {
         return users[indexPath.row]
     }
+    
+    override func numberOfSections() -> Int {
+        return 2
+    }
 }
 
 
