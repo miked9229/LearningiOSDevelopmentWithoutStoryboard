@@ -15,6 +15,7 @@ class TweetCell: DatasourceCell {
         backgroundColor = .white
     
         separatorLineView.isHidden = false
+        separatorLineView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
     
     
     }

@@ -44,7 +44,7 @@ class HomeDatasource: Datasource {
     override func numberOfItems(_ section: Int) -> Int {
        
         if section == 1 {
-            return 1
+            return 2
         }
         
         return users.count
