@@ -25,6 +25,14 @@ class HomeDatasource: Datasource {
     
     }()
     
+    let tweets: [Tweet] = {
+        let brianUser = User(name: "Brian Voong", username: "@buildthatapp", bioText: "iPhone, iPad, iOS Community. Join us to learn Swift, Objective-C and build iOS apps.", profileImage: #imageLiteral(resourceName: "profile_image"))
+        
+        let tweet1 = Tweet(user: brianUser, message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nisi dui, ornare ac lobortis vitae, pharetra nec sapien. In volutpat ligula finibus, porta ante at, consequat mauris. In nec mollis lacus. Sed ac euismod arcu, eu eleifend erat. Mauris lacinia.")
+        let tweet2 = Tweet(user: brianUser, message: "Curabitur scelerisque ante eu justo hendrerit, non vehicula justo scelerisque. Praesent molestie, odio nec sodales gravida, erat velit bibendum orci, ac porta mauris massa ut nisl. Aenean et lacus nunc. Maecenas nunc augue, facilisis eu pharetra et, ultricies vel arcu")
+        return [tweet1, tweet2]
+    }()
+    
     
     
     override func headerClasses() -> [DatasourceCell.Type]? {
@@ -44,12 +52,17 @@ class HomeDatasource: Datasource {
     override func numberOfItems(_ section: Int) -> Int {
        
         if section == 1 {
-            return 2
+            return tweets.count
         }
         
         return users.count
     }
     override func item(_ indexPath: IndexPath) -> Any? {
+        
+        if indexPath.section == 1 {
+            return tweets[indexPath.row]
+        }
+        
         return users[indexPath.row]
     }
     
