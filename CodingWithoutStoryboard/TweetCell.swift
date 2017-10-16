@@ -51,6 +51,14 @@ class TweetCell: DatasourceCell {
         
     }()
     
+    let replyButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "reply"), for: .normal)
+        return button
+        
+        
+    }()
+    
     
     override func setupViews() {
         super.setupViews()
@@ -61,6 +69,7 @@ class TweetCell: DatasourceCell {
         
         addSubview(profileImageView)
         addSubview(messageTextView)
+        addSubview(replyButton)
     
     
         
@@ -68,7 +77,19 @@ class TweetCell: DatasourceCell {
         
         messageTextView.anchor(self.topAnchor, left: profileImageView.rightAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, topConstant: 4, leftConstant: 4, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
+        setupBottomButtons()
         
+    }
+    
+    public func setupBottomButtons() {
+        
+        let view = UIView()
+        view.backgroundColor = .red
+        let buttonStackView = UIStackView(arrangedSubviews: [view])
+        
+        addSubview(buttonStackView)
+        
+        buttonStackView.anchor(nil, left: messageTextView.leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 20)
     }
     
     
