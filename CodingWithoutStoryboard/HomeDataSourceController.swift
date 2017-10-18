@@ -10,6 +10,10 @@ import LBTAComponents
 
 class HomeDataSourceController: DatasourceController {
     
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
+    }
+    
     override func viewDidLoad() {
     super.viewDidLoad()
         
@@ -49,8 +53,6 @@ class HomeDataSourceController: DatasourceController {
         
         }
         
-
-      
         return CGSize(width: view.frame.width, height: 200)
     
     }
