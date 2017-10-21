@@ -8,6 +8,7 @@ target 'CodingWithoutStoryboard' do
   # Pods for CodingWithoutStoryboard
 
   pod ‘LBTAComponents’, ‘~> 0.1.9’
+  pod ‘TRON’
 
   target 'CodingWithoutStoryboardTests' do
     inherit! :search_paths
