@@ -71,11 +71,13 @@ class HomeDataSourceController: DatasourceController {
     
     public func fetchHomeFeed() {
         
-        let request: APIRequest<Home, JSONError> = tron.request("/twitter/home")
+        let request: APIRequest<HomeDatasource, JSONError> = tron.request("/twitter/home")
         
         
-        request.perform(withSuccess: { (home) in
+        request.perform(withSuccess: { (homeDataSource) in
             print("Sucessfully fetched JSON")
+            
+            self.datasource = homeDataSource
         }) { (err) in
             print("failed to fetch JSON", err)
             
