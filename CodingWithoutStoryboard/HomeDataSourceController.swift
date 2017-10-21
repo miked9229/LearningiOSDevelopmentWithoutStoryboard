@@ -31,57 +31,9 @@ class HomeDataSourceController: DatasourceController {
         
     }
     
-    let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
-    
-    class Home: JSONDecodable {
-        
-        let users: [User]
-    
-        required init(json: JSON) throws {
-            print("ready to parse JSON: ", json)
-            
-            var users = [User]()
-            
-            let array = json["users"].array
-           
-            for userJson in array! {
-             
-                let name = userJson["name"].stringValue
-                let username = userJson["username"].stringValue
-                let bio = userJson["bio"].stringValue
-                
-                let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
-            
-                users.append(user)
-            }
-            
-            self.users = users
-            
-        }
-
-    }
-    
-    class JSONError: JSONDecodable {
-        required init(json: JSON) throws {
-            print("JSON ERROR")
-        }
-        
-    }
-    
     
     public func fetchHomeFeed() {
-        
-        let request: APIRequest<HomeDatasource, JSONError> = tron.request("/twitter/home")
-        
-        
-        request.perform(withSuccess: { (homeDataSource) in
-            print("Sucessfully fetched JSON")
-            
-            self.datasource = homeDataSource
-        }) { (err) in
-            print("failed to fetch JSON", err)
-            
-        }
+
     
     
     }
