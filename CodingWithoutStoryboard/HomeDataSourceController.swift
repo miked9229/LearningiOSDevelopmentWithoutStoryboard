@@ -24,20 +24,18 @@ class HomeDataSourceController: DatasourceController {
         
         
     collectionView?.backgroundColor = UIColor(r: 232, g: 236, b: 241)
-    
-    fetchHomeFeed()
-        
-    Service.sharedInstance.fetchHomeFeed()
-        
-    }
-    
-    
-    public func fetchHomeFeed() {
 
-    
-    
+        
+        Service.sharedInstance.fetchHomeFeed { (homeDataSource) in
+            self.datasource = homeDataSource
+        }
+        
+        
+        
+        
     }
     
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }

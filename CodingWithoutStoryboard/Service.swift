@@ -20,7 +20,7 @@ struct Service {
     static let sharedInstance = Service()
 
     
-    func fetchHomeFeed() {
+    func fetchHomeFeed(completion: @escaping (HomeDatasource) -> ()) {
         print("Fetching home feed")
         
         
@@ -30,6 +30,9 @@ struct Service {
         
         request.perform(withSuccess: { (homeDataSource) in
             print("Sucessfully fetched JSON")
+            
+            
+            completion(homeDataSource)
             
 //            self.datasource = homeDataSource
         }) { (err) in
