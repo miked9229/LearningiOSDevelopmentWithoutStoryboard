@@ -14,7 +14,6 @@ extension HomeDataSourceController {
 
      func setUpNavBarItems() {
     
-    
     setupLeftNavItems()
     setupRightNavItems()
     setupRemainingNavItems()
@@ -23,7 +22,6 @@ extension HomeDataSourceController {
     
     
     }
-
 
     private func setupRemainingNavItems() {
     

@@ -46,13 +46,6 @@ class WordCell: UICollectionViewCell {
 }
 
 
-
-
-
-
-
-
-
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellID"

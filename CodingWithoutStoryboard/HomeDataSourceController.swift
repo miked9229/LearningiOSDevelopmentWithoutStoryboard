@@ -19,15 +19,15 @@ class HomeDataSourceController: DatasourceController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
-        
-//    let homeDatasource = HomeDatasource()
-//    self.datasource = homeDatasource
+
     setUpNavBarItems()
         
         
     collectionView?.backgroundColor = UIColor(r: 232, g: 236, b: 241)
     
-        fetchHomeFeed()
+    fetchHomeFeed()
+        
+    Service.sharedInstance.fetchHomeFeed()
         
     }
     
