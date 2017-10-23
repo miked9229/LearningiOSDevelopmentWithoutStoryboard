@@ -36,10 +36,6 @@ struct Service {
         
     }
     
-    
-    
-    
-    
     class JSONError: JSONDecodable {
         required init(json: JSON) throws {
             print("JSON ERROR")

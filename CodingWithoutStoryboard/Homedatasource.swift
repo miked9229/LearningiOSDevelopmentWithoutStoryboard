@@ -17,48 +17,24 @@ class HomeDatasource: Datasource, JSONDecodable {
     let users: [User]
     let tweets: [Tweet]
     
-    
-    
     required init(json: JSON) throws {
         print("ready to parse JSON: ", json)
         
-        var users = [User]()
-        
-        let array = json["users"].array
-        
-        for userJson in array! {
-            
-//            let user = userJson["user"]
-            
-            let user = User(json: userJson)
-            
-            
-            users.append(user)
-        }
         
         
-        var tweets = [Tweet]()
+        let userJSONarray = json["users"].array
+        
+        self.users = userJSONarray!.map{User(json: $0)}
+        
+
+        
+//        var tweets = [Tweet]()
         
         let tweetsJsonArray = json["tweets"].array
         
-        for tweetJson in tweetsJsonArray! {
-            
-            let user = tweetJson["user"]
-            
-            let userJSON = User(json: user)
-            
-
-            let message = tweetJson["message"].stringValue
-            
-            let tweet = Tweet(user: userJSON, message: message)
-            
-            tweets.append(tweet)
+        self.tweets = tweetsJsonArray!.map({Tweet(json: $0)})
         
         
-        }
-        
-        self.users = users
-        self.tweets = tweets
     }
     
 
