@@ -38,6 +38,18 @@ class HomeDataSourceController: DatasourceController {
         
         Service.sharedInstance.fetchHomeFeed { (homeDataSource, err) in
             if let err = err {
+                
+                if let apiError = err as? APIError<Service.JSONError> {
+                    
+                    if apiError.response?.statusCode != 200 {
+                        self.errorMessageLabel.text = "Status code was not 200"
+                        return
+                    }
+                    
+                }
+                
+                
+                
                 self.errorMessageLabel.isHidden = false
                 print("HomeDatasourceController error fetching json: ", err)
                 return
