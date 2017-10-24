@@ -11,7 +11,6 @@ import LBTAComponents
 import TRON
 import SwiftyJSON
 
-
 class HomeDatasource: Datasource, JSONDecodable {
     
     let users: [User]
@@ -28,8 +27,6 @@ class HomeDatasource: Datasource, JSONDecodable {
         
 
         
-//        var tweets = [Tweet]()
-        
         let tweetsJsonArray = json["tweets"].array
         
         self.tweets = tweetsJsonArray!.map({Tweet(json: $0)})
@@ -37,9 +34,6 @@ class HomeDatasource: Datasource, JSONDecodable {
         
     }
     
-
-    
-
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [UserHeader.self]
     }

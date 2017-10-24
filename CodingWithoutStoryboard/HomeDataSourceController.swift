@@ -13,6 +13,13 @@ import SwiftyJSON
 
 class HomeDataSourceController: DatasourceController {
     
+    let errorMessageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Apologies, something went wrong. Please try again later...."
+        label.isHidden = true
+        return label
+    }()
+    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionViewLayout.invalidateLayout()
     }
@@ -20,18 +27,24 @@ class HomeDataSourceController: DatasourceController {
     override func viewDidLoad() {
     super.viewDidLoad()
 
+    view.addSubview(errorMessageLabel)
+    errorMessageLabel.fillSuperview()
+    
     setUpNavBarItems()
         
         
     collectionView?.backgroundColor = UIColor(r: 232, g: 236, b: 241)
 
         
-        Service.sharedInstance.fetchHomeFeed { (homeDataSource) in
+        Service.sharedInstance.fetchHomeFeed { (homeDataSource, err) in
+            if let err = err {
+                self.errorMessageLabel.isHidden = false
+                print("HomeDatasourceController error fetching json: ", err)
+                return
+            }
+            
             self.datasource = homeDataSource
         }
-        
-        
-        
         
     }
     
