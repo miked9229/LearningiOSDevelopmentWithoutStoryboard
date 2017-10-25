@@ -19,8 +19,6 @@ class HomeDatasource: Datasource, JSONDecodable {
     required init(json: JSON) throws {
         print("ready to parse JSON: ", json)
         
-        
-        
         guard let userJSONarray = json["users"].array, let tweetsJsonArray = json["tweets"].array else {
             throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "Parsing JSON was not valid"])
         
